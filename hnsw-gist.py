@@ -17,7 +17,7 @@ class HNSW:
 
         self._query = "SELECT id FROM t ORDER BY vec <-> %%s LIMIT %%s"
 
-        self._conn = psycopg2.connect('postgresql://raouf:pD6sWiqM0kyP@ep-curly-king-722988.eu-west-1.aws.neon.build/neondb') # psycopg2.connect('port=55432 user=cloud_admin dbname=postgres')
+        self._conn = psycopg2.connect('postgresql://raouf@ep-curly-king-722988.eu-west-1.aws.neon.build/neondb') # psycopg2.connect('port=55432 user=cloud_admin dbname=postgres')
         self._conn.autocommit = True
         self._cur = self._conn.cursor()
         self._cur.execute('CREATE EXTENSION IF NOT EXISTS hnsw')
