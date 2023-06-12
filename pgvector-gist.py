@@ -22,7 +22,7 @@ class Pgvector:
         self._table = 'vectors_%s_%d' % (metric, lists)
         self._query = "SELECT id FROM %s ORDER BY vec %s %%s::vector LIMIT %%s" % (self._table, self._op)
 
-        self._conn = psycopg2.connect('postgresql://raouf:pD6sWiqM0kyP@ep-lucky-bush-021504.eu-west-1.aws.neon.build/neondb')
+        self._conn = psycopg2.connect('postgresql://raouf@ep-lucky-bush-021504.eu-west-1.aws.neon.build/neondb')
         self._conn.autocommit = True
         self._cur = self._conn.cursor()
         self._cur.execute('CREATE EXTENSION IF NOT EXISTS vector')
